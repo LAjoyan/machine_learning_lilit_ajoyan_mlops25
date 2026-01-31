@@ -2,11 +2,23 @@ from fastapi import FastAPI
 import joblib
 import pandas as pd
 from constants import DATA_PATH, CLASSIFIER_PATH
+from data_models import IrisInput, PredictionOutput
 
-df = pd.read_csv(DATA_PATH / 'IRIS.csv')
+df = pd.read_csv(DATA_PATH / "IRIS.csv")
 
 app = FastAPI()
 
-@app.get('/api/data')
+
+# read
+@app.get("/api/data")
 async def read_data():
-    return df.to_dict(orient='records')
+    return df.to_dict(orient="records")
+
+
+# create
+@app.post("/api/predict", response_model=PredictionOutput)
+async def predict_flower(payload: IrisInput):
+    data_to_predict = pd.DataFrame(payload.model_dump(), index=[0])
+    clf = joblib.load(CLASSIFIER_PATH)
+    prediction = clf.predict(data_to_predict)
+    return {"predicted_flower": prediction[0]}
