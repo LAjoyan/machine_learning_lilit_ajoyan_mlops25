@@ -2,7 +2,7 @@
 
 ## 🚀 Related Project
 For a more polished / production-oriented implementation, see the lab version of this project:  
-👉 [taxi_prediction_fullstack_lilit](https://github.com/Lilit900/taxi_prediction_fullstack_lilit)
+👉 [taxi_prediction_fullstack_lilit](https://github.com/Lajoyan/taxi_prediction_fullstack_lilit)
 
 Note: the lab version focuses only on **Linear Regression** and **Random Forest**, while this repository covers a broader set of machine learning concepts.
 
