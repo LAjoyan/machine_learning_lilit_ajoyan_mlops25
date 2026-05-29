@@ -1,1 +1,5 @@
-{"name":"Doddo","gender":"F","age":5}
+{
+   "name": "Doddo",
+   "gender": "F",
+   "age": 5
+}
